@@ -1,0 +1,67 @@
+body {
+  padding-top: 70px;
+  background-color: black;
+  background: url(img/7.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-color:black;
+}
+
+/* legal */
+#law-text {
+  background-color: rgba(57, 57, 57, .9);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: black 5px 5px 10px;
+  text-align: center;
+}
+
+/* navbar */
+@media (max-width: 575px) {
+  li.nav-item {
+      border-bottom: 1px solid white;
+      background-color: #3f454b;
+      border-radius: 10px 10px 10px 10px;
+  }
+
+  li.nav-item:last-child {
+      border-bottom: 2px solid white;
+  }
+
+  ul.navbar-nav {
+      background-color: rgba(255, 0, 0, 0) !important;
+  }
+}
+
+/* responsywność */
+/* wycentrowanie tekstu na mniejszych ekranach */
+@media (max-width: 767px) {
+  body {
+    text-align: center;
+  }
+
+  /* lista z opcjami konta */
+  ul.list-group {
+    width: 70%;
+    display: inline-block;
+  }
+
+}
+
+@media (max-width: 420px) {
+  footer {
+      font-size: .8rem;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+
+  footer {
+    font-size: .8rem;
+  }
+}

@@ -1,0 +1,125 @@
+body {
+  background: url(img/3.jpg);
+  background-position: right;
+  background-color: black !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* styling wyszukiwarki */
+.search-hover {
+  text-align: center;
+  color: black !important;
+  border: 1px solid #ccc;
+  outline: none;
+  background-size: 22px;
+  background-position: 13px;
+  border-radius: 50px;
+  width: 300px;
+  height: 50px;
+  padding: 25px;
+}
+
+/* default card style override */
+.card {
+  background-color: rgba(255, 255, 255, 0);
+  border: 0;
+}
+
+.card-body {
+  border-radius: 10px;
+  box-shadow: black 5px 5px 10px;
+}
+
+#latin-header {
+  font-style: italic;
+  background-color: rgb(34, 30, 30);
+  width: 50%;
+  margin: auto;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: black 5px 5px 10px;
+}
+
+/* responsywność */
+
+@media (max-width: 992px) {
+  main {
+    padding-top: 4rem;
+  }
+
+  #latin-header {
+    width: 80%;
+  }
+}
+
+@media (max-width: 519px){
+
+  main {
+    padding-top: 3rem;
+  }
+
+  h1, .card-title {
+    font-size: 1.5rem;
+  }
+
+  #latin-header {
+    width: 80%;
+  }
+
+  /* responsywność card */
+
+  .card-body {
+    font-size: 1rem;
+    padding: .2rem;
+    margin: 0;
+  }
+
+  .btn {
+    width: 120px;
+    height: 30px;
+    font-size: .7rem;
+    line-height: 1rem;
+    font-weight: 700;
+  }
+
+  /* wyszukiwarka */
+
+  .search-hover {
+    font-size: 1rem;
+    text-align: center;
+    color: black;
+    border: 1px solid #ccc;
+    outline: none;
+    background-size: 22px;
+    background-position: 13px;
+    border-radius: 50px;
+    width: 65%;
+    height: 30px;
+    padding: 10px;
+    line-height: 1rem;
+  }
+
+  footer {
+    font-size: .8rem;
+  }
+
+  /* ukrycie dodatkowego kontenera */
+  /* div.row-fluid.mt-5.text-center {
+    display: none;
+  } */
+}
+
+/* @media (max-width: 769px) {
+  main {
+    padding-top: 6rem;
+  }
+} */

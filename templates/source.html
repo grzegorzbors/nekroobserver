@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{#css dla głównej strony ładuje odpowiednie zdjęcie #}
+{% load staticfiles %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}">
+{% endblock %}  
+   
+{#zasadnicza treść strony #}
+{% block content %}
+<div class="row-fluid text-center">
+  <div class="container">
+  <div class="card mx-auto" id="source-container">
+	<div class="card-body">
+		<h2>Źródła</h2>
+		<p>Portal „Nekroobserver” poszukuje informacji w bazach nekrologów:</p>
+		<ul>
+			<li><a href="https://dziennikpolski24.pl/nekrologi/">Dziennik Polski</a></li>
+			<li><a href="http://nekrologi.wyborcza.pl/0,56,,,378,,,false.html">Gazeta Wyborcza</a></li>
+			<li><a href="https://gazetakrakowska.pl/nekrologi/">Gazeta Krakowska</a></li>
+		</ul>
+   </div>	
+	</div>
+  </div>
+</div>
+{% endblock %} 

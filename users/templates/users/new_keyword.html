@@ -1,0 +1,41 @@
+{% extends "baselogin.html" %}
+
+
+{% load crispy_forms_tags %}  
+<!--blok header dla dodawania keywords-->
+{% block header %}
+
+<div class="container col-10 text-white">
+  <div class="row">
+    <div class="col-md-5 py-2">
+      <form method="POST" name="newkeyword" value='keyword'>
+        {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4"> Nowe słowo kluczowe </legend>
+        {{ form | crispy }}
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-outline-danger" type="submit">utwórz</button>
+      </div>
+      </form>
+    </div>
+  </div> <!--row-->
+</div><!--container-->
+
+{% endblock%}
+
+<!--blok kontent dla wskazówek-->
+{% block content %}
+<div class="container col-10">
+  <div class="row">
+    <div class="container text-center">
+    <h3> Jak dobrze przygotować słowa kluczowe </h3>
+    </div>
+    <div class="container text-center text-white">
+      <p>Zdefiniowanie słów kluczowych, to najważniejsze zadanie każdego użytkownika.  Warto poświęcić kilka chwil na staranne przygotowanie odpowiedniej listy. Bez tego nekrobserver nie będzie mógł działać skutecznie </p>
+      <p>Pamiętaj:<br>ODMIANA PRZEZ PRZYPADKI! Warto przygotować profil zawierający odmianę tego samego słowa w mianowniku (kto? co?) i dopełniaczu (kogo? czego?). Nekrologi najczęśniej zawierają imię i nazwisko w mianowniku, ale bywa też inaczej. Np. "Ś.P. Jan Kowalski" lub "Pamięci Jana Kowalskiego". <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet soluta, iste voluptatibus commodi cupiditate recusandae sit quisquam inventore aspernatur quos quasi, similique quibusdam quas, magnam autem itaque enim ratione? Quam?</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

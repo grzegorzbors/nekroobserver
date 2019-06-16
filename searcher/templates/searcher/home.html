@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{#css dla głównej strony ładuje odpowiednie zdjęcie #}
+{% load staticfiles %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'searcher/style.css' %}">
+{% endblock %}  
+   
+{#zasadnicza treść strony #}
+{% block content %}
+<div class="row-fluid">
+        <div></div>  
+        <div class="centering text-center">
+            <input type="text" class="search-hover text-light" name="" placeholder="Szukaj w naszych źródłach" class="text-light">
+        </div>
+    </div>
+  <div class="text-white text-center py-5 px-4 my-5">
+    <div>
+      <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Nigdy nie zapominaj o tych którzy odchodzą</strong></h2>
+      <p class="mx-5 mb-5"> Czujesz się w obowiązku złożyć kwiaty na grobie kombantantów wojennych? Uważasz, że ludziom zasłużonym należy się szczególna pamięć? Twoja organizacja potrzebuje wiedzieć o takich smutnych wydarzeniach, żeby zachować się stosownie? Nie masz kontaktu z rodziną? <br> We wszystkich tych sytuacjach nekrobserver Ci pomoże.
+      <br>Załóż konto, podaj szukane nazwiska a my wyślemy Ci mailową informację, kiedy nadejdze to co nieuniknione. </p>
+      <a class="btn btn-outline-danger mt4" href="{% url 'register_page' %}">ZAREJESTRUJ SIĘ</a>
+    </div>
+  </div>
+{% endblock %} 

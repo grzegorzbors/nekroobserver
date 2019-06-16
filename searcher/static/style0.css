@@ -1,0 +1,29 @@
+body {
+  padding-top: 70px;
+  background-color: black;
+  background: url(img/3.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+h1 {
+  text-align: center;
+}
+
+.search-hover {
+        background: url(http://www.iconsdb.com/icons/preview/white/search-12-xxl.png) no-repeat left;
+        border: 1px solid #ccc;
+		outline: none;
+        background-size: 22px;
+        background-position: 13px;
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        padding: 25px;
+        transition: all .5s;
+    }
+.search-hover:hover{
+        width: 300px;
+        padding-left: 50px;
+    }

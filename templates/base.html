@@ -1,0 +1,120 @@
+
+<!doctype html>
+<html lang="pl">
+<head>
+
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+<!--ładowanie css. Inne dla różnych stron -->	
+  <!--my css-->
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'base_style.css' %}">
+<!--css do załadowania dla różnych stron-->
+  {% block styles %}
+  {% endblock %}  
+
+<!-- zmienna title domyślnie nekrobserver, ale może być inna -->
+  {% if page.title %}              
+    <title> {{page.title}}  </title>
+  {% else %}
+    <title> nekroobserver </title>
+  {%endif %}
+
+</head>
+
+<body class="bg-black text-light">
+
+<!--navbar stale ten sam-->
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark">
+      <a class="navbar-brand" href="{% url 'index_page' %}">nekrobserver</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0 bg-dark text-center">
+
+<!-- warunek: jeżeli zalogowany to link do profilu 
+            oraz opcja wylogowania są widoczne -->
+          {% if user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'profile' %}"> {{user }} <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}"> wyloguj się<span class="sr-only">(current)</span></a>
+          </li>
+
+<!-- jeżeli jest niezalogowany, to może się zalogować -->
+            {% else %}
+          <li class="nav-item">
+            <a class="nav-link" id="login-nav" href="{% url 'login' %}">log in<span class="sr-only">(current)</span></a>
+          </li>
+          {% endif %}
+
+          <li class="nav-item">
+            <a class="nav-link" id="src-nav" href="{% url 'source' %}">źródła</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="about-nav" href="{% url 'about' %}" tabindex="-1" aria-disabled="true">o nas</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+<!--main-->
+<main role="main" class="container">
+
+<!--zmienna header-->  
+   <div class="row-fluid text-center" id="latin-header">
+      <h1 style="display: inline-block">{{ page.header }}</h1>
+   </div>
+  
+<!--główny blok-->
+      {% block content %}
+      {% endblock %} 
+<div class="container col-10 mt-5">
+  <div class="row">
+    <!--paginacja-->    
+{% if is_paginated %}
+
+    {% if page_obj.has_previous %}
+      <a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.previous_page_number }}">poprzednia</a>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+      <a class="btn btn-secondary mb-4" href="?page={{ num }}">{{ num }}</a>
+      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+      <a class="btn btn-outline-secondary mb-4" href="?page={{ num }}">{{ num }}</a>
+      {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+      <a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.next_page_number }}">następna</a>
+      {% endif %}
+
+{% endif %}
+
+  </div>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="footer-copyright text-center py-1 fixed-bottom bg-dark">
+        © 2019 Copyright: Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie 
+</footer>
+    
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  </body>
+</html>

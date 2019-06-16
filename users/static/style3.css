@@ -1,0 +1,80 @@
+/* login styling */
+
+body {
+  background-color: black;
+  background: url(img/3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.form-group {
+  margin: 0;
+  padding: 3px;
+}
+
+#login-nav {
+  color: white;
+}
+
+/* welcome text after registering */
+#welcome-text {
+  font-size: 2rem;
+}
+
+h1 {
+  padding-top: 70px;
+}
+
+/* kontener z loginem */
+#login-container, #thank-you-logout, #welcome-container {
+  background-color: #393939;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: black 5px 5px 10px;
+}
+
+/* ekran wylogowania */
+#thank-you-logout {
+  padding-top: 70px;
+}
+
+#thank-you-logout h1 {
+  font-size: 2rem;
+}
+
+/* responsywność */
+@media (max-width: 768px) {
+  .col-md-4 {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 420px) {
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #content-container {
+    /* padding: 0 !important; */
+    margin: 0 !important;
+  }
+  footer {
+    font-size: .8rem;
+  }
+
+  div.alert-danger {
+    padding: 0 !important;
+    font-size: .8rem;
+    margin: 0;
+  }
+
+  div.alert.alert-block.alert-danger ul {
+    margin: 0;
+  }
+
+  #welcome-text {
+    font-size: 1.5rem;
+  }
+}

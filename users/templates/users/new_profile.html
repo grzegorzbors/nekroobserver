@@ -1,0 +1,25 @@
+{% extends "baselogin.html" %}
+
+
+<!--blok header dla dodawania profili-->
+{% block header %}
+{% load crispy_forms_tags %}
+<div class="container col-10 text-white">
+  <div class="row">
+    <div class="col-md-5 py-2">
+      <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4"> Nowy profil </legend>
+        {{ form|crispy}}
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-success" type="submit">utwórz</button>
+      </div>
+      </form>
+    </div>
+  </div> <!--row-->
+</div><!--container-->
+{% endblock %} 
+
+

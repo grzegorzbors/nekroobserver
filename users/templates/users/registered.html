@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{#css dla głównej strony ładuje odpowiednie zdjęcie #}
+{% load staticfiles %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style3.css' %}">
+{% endblock %}  
+   
+{#zasadnicza treść strony #}
+{% block content %}
+<div class="text-white text-center py-5 px-4 my-5">
+<div class="content-section" id="welcome-container">
+	<p id="welcome-text">Witamy w społeczności użytkowników nekrobservera.<br>Możesz teraz zalogować się, żeby w pełni korzystać z możliwości serwisu<p>
+	<a class="btn btn-primary mt4" href="{% url 'login' %}">ZALOGUJ SIĘ</a>
+</div>
+</div>
+
+
+{% endblock %} 

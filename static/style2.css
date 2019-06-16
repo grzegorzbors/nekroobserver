@@ -1,0 +1,43 @@
+/* source styling */
+
+body {
+  padding-top: 70px;
+  background-color: black;
+  background-image: url(img/21.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-size: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+#src-nav {
+  color: white;
+}
+
+#source-container {
+  background-color: rgba(57, 57, 57, .9);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: black 5px 5px 10px;
+  width: 70%;
+}
+
+ul {
+  text-align: center;
+  padding: 0;
+}
+
+ul>li {
+  list-style: none;
+  padding: .2rem;
+}
+
+@media (max-width: 650px) {
+  #source-container {
+    width: 90%;
+  }
+}

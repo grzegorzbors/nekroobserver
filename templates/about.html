@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+<!--css dla głównej strony ładuje odpowiednie zdjęcie-->
+{% load staticfiles %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock %}
+
+<!--zasadnicza treść strony-->
+{% block content %}
+<div class="row top-buffer">
+</div>
+<div class="row align-items-center text-center">
+	<div class="container mx-auto col-md-7">
+		<p id="about-content">Portal „Nekroobserver” jest pracą zaliczeniową studentów studiów podyplomowych Katedry Informatyki Akademii Górniczo-Hutniczej w Krakowie z kierunku: „Informatyka: Projektowanie, Programowanie i Eksploatacja Systemów”.<br><br>
+			<span id="team-header">Zespół:</span>
+			<br><span id="member-name">Grzegorz Bors</span> – programista frontend
+			<br><span id="member-name">Tomasz Ostrowski</span> – kierownik zespołu
+			<br><span id="member-name">Łukasz Tomkiewicz</span> – architekt systemu
+			<br><span id="member-name">Maria Szmigielska</span> - tester
+			<br><span id="member-name">Maciej Zarych</span> – programista backend / architekt systemu				
+		</p>
+	</div>
+</div>
+{% endblock %}

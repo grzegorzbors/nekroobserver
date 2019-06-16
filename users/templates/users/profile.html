@@ -1,0 +1,72 @@
+{% extends "baselogin.html" %}
+  
+
+{% block content %}
+<!--wstępniak-->
+	<div class="row">
+      	<div class="container col-md-8">
+      		<p> Zdefiniuj nazwiska lub słowa klucze, które będą szukane przez nekrobservera. Utwórz profile, np. zasłużeni dla Krakowa, kombatanci, i zostaw nam monitorowanie nekrologów. 
+ 			    </p>     	
+      	</div>
+      	<div class="container col-md-8">
+      	<div class="container center_div col-md-4">
+      		<div class="form-group">
+<!--przycisk NOWY PROFIL-->
+				<a class="btn btn-success" type="submit" href="{% url 'new_profile'%}">NOWY PROFIL</a>
+			</div>
+      	</div>
+      	</div>
+    </div>
+
+<!--pusty rząd, odstęp -->
+      <div class="row mt-3"></div>
+
+<!-- sekcja z profilami-->
+
+      <div class="container col-md-10">
+        <div class="row">
+<!--każda kolumna osobna karta z profilem
+    jeżeli użytkownik nie zdefiniował jeszcze profili, to wyświetlony 
+    jest jeden przykladowy-->           
+{% if page.sum  == 0 %}
+
+          <div class="col-sm-6 col-lg-4 py-2">
+            <div class="card" style="width: 15rem;">
+              <div class="card-body bg-dark">
+                <h5 class="card-title">PRZYKŁADOWY PROFIL: Odznaczeni Gloria Artis</h5>
+                <h6 class="card-subtitle mb-2 text-muted">30 osób</h6>
+                <p class="card-text">Lista mieszkancow Krakowa odznaczonych medalem Gloria Artis. </p>
+                <a href="#" class="card-link">Edytuj</a>
+                <a href="#" class="card-link">Skanuj</a>
+                <a href="#" class="card-link">Usuń</a>
+              </div>
+            </div>
+          </div> 
+
+<!--Jeżeli zdefiniował, to wyświetlane są profile po 9 na stronę-->
+{% else %}
+          {% for object in object_list %}
+
+          <div class="col-sm-6 col-lg-4 py-2">
+            <div class="card" style="width: 15rem;">
+              <div class="card-body bg-dark">
+    
+<!--link do ProfileDetailsView-->
+                <h5 class="card-title"><a href="{{ object.get_absolute_url }}"> {{ object.name }} </a></h5>
+                <h6 class="card-subtitle mb-2 text-muted">  </h6>
+                <p class="card-text"> {{ object.description }} </p>
+<!--link do profileUpdateView-->
+                <a href="{% url 'profile_update' object.id_profile %}" class="card-link">Edytuj</a>
+<!--nekroskaner-->
+                <a href="#" class="card-link">Skanuj</a>
+<!--link do ProfileDeleteView-->
+                <a href="{% url 'profile_delete' object.pk %}" class="card-link">Usuń</a>
+              </div>
+            </div>
+          </div>  
+        {% endfor %} 
+{% endif %}
+
+        </div>  <!--container col-md-10 -->
+      </div>  <!--row -->
+{% endblock %} 

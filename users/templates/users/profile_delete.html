@@ -1,0 +1,25 @@
+{% extends "baselogin.html" %}
+
+
+{% block header %}
+
+<div class="container col-10 text-white">
+  <div class="row">
+    <div class="col-md-5 py-2">
+        <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">
+            <legend class="border-bottom mb-4"> Czy na pewno chcesz usunąć profil {{object.name}} ?</legend>
+            <h6 class="card-subtitle mb-2 text-muted">Wszystkie dane zostaną skasowane.</h6> 
+        
+          </fieldset>
+          <div class="form-group">
+            <button class="btn btn-danger" type="submit">Tak, usuń</button>
+            <a class="btn btn-outline-secondary" href="{{ object.get_absolute_url }}" >Nie, rezygnuję</a>
+          </div>
+        </form>
+    </div>
+  </div> <!--row-->
+</div><!--container-->
+
+{% endblock %} 

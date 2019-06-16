@@ -1,0 +1,51 @@
+/* about styling */
+
+html {
+  height: 100vh;
+}
+
+body {
+  padding-top: 70px;
+  background-color: black;
+  background-image: url(img/01.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-size: cover;
+  /* height: 100vh; */
+}
+
+h1 {
+  background-color: rgba(63, 69, 75, .9);
+  border-radius: 10px 10px 10px 10px;
+  padding: .3rem;
+}
+
+p {
+  background-color: rgba(52, 58, 64, .9);
+  padding: .2rem;
+  border-radius: 10px;
+}
+
+.top-buffer { 
+  margin-top:80px; 
+}
+
+span#team-header {
+  font-weight: 700;
+}
+
+span#member-name {
+  font-style: italic;
+  font-weight: 500;
+}
+
+#about-nav {
+  color: white;
+}
+
+@media (max-width: 420px) {
+  body {
+    overflow: hidden;
+  }
+}

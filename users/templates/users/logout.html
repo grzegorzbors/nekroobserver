@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{#css dla głównej strony ładuje odpowiednie zdjęcie #}
+{% load staticfiles %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style3.css' %}">
+{% endblock %}  
+{% load crispy_forms_tags %}  
+{#zasadnicza treść strony #}
+{% block content %}
+<div class="text-white text-center py-5 px-4 my-5" id="thank-you-logout">
+<div class="container col-md-7 col-md-offset-4">
+	
+	<h1 style="padding-top: 0;">Jesteś wylogowany.<br>Dziękujemy za korzystanie z nekrobservera. </h1>
+
+	<div class="border-top pt-3">
+		<small class="text-muted">
+		Jeżeli chcesz możesz<a href="{% url 'login' %}"> zalogować się </a>
+		ponownie </small>
+	</div>
+</div>
+</div>
+
+
+{% endblock %} 

@@ -1,0 +1,22 @@
+{% extends "baselogin.html" %}
+
+<!--  ładuje odpowiednie zdjęcie -->
+{% load staticfiles %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style4.css' %}">
+{% endblock %}  
+   
+<!--zasadnicza treść strony -->
+{% block content %}
+	<div class="container col-10">
+		<div class="row">
+			
+			<p id="law-text">
+				Portal „Nekroobserwer” w odpowiedzi na zapytanie użytkownika wyszukuje, syntetyzuje, agreguje i udostępnia informacje o publicznie dostępnych nekrologach. W trakcie korzystania z portalu nie są wykorzystywane żadne dane osobowe.<br>Przekazywana informacja jest powiadomieniem o opublikowaniu informacji źródłowej, realizowanym na podstawie zapytania użytkownika.<br>Do logowania i korzystania z funkcjonalności serwisu nie jest potrzebne podawanie żadnych danych osobowych.<br>
+				Właścicielem portalu „Nekroobserver” są autorzy, projekt opracowano jako pracę zaliczeniową studentów studiów podyplomowych Katedry Informatyki Akademii Górniczo-Hutniczej w Krakowie, z kierunku: „Informatyka: Projektowanie, Programowanie i Eksploatacja Systemów”.					
+			</p>
+
+		</div>
+
+	</div>
+{% endblock %} 

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+<!--css dla głównej strony ładuje odpowiednie zdjęcie -->
+{% load staticfiles %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'searcher/style.css' %}">
+{% endblock %}  
+   
+<!--zasadnicza treść strony-->
+{% block content %}
+
+
+<div class="row-fluid mt-5 text-center">
+</div>
+
+<!--wyszukiwarka / tu będzie podpięty crawler-->
+<div class="row-fluid">
+      <div class="centering text-center">
+        <input type="text" class="search-hover text-light" name="" placeholder="Szybkie wyszukiwanie" class="text-light" type="text">
+      </div>
+</div> <!--row-->
+
+
+<div class="row-fluid text-center">
+  <div class="card mx-auto mt-3 border-secondary">
+  <div class="card-body bg-dark">
+<!--treści dla zalogowanych użytkowników -->  
+      {% if user.is_authenticated %}
+      
+  <p class="mx-2 mb-2">
+      Dziękujemy za korzystanie z portalu „Nekroobserver”. Proszę wypełnić profil i podać dane do wyszukiwania. 
+      Gdy nasz system znajdzie odpowiadające dopasowania, dostaniecie Państwo informację na podany przez Państwa adres poczty elektronicznej.<br>
+      System wyszukiwania działa na zasadzie pełnotekstowego dopasowania przeszukiwanych fraz na monitorowanych portalach, względem podanych przez Państwa danych. Do skutecznej identyfikacji potrzeba jest data urodzenia osoby poszukiwanej.<br>
+      W przypadku odnalezienia dopasowania, emaile z wiadomością będą wysłane w godzinach porannych.
+  </p>
+
+  {% else %}
+<!-- home page dla nowych/niezalogowanych --> 
+  <h2 class="card-title h1-responsive pt-3 mb-2 font-bold"><strong>Pamiętaj o tych, którzy odeszli</strong></h2>
+    <a class="btn btn-primary my-2" href="{% url 'register_page' %}">ZAREJESTRUJ SIĘ</a>
+    <p>Czujesz się w obowiązku złożyć kwiaty na grobie kombatantów wojennych? Uważasz, że ludziom zasłużonym należy się szczególna pamięć? Twoja organizacja potrzebuje wiedzy o pogrzebach, żeby zachować się stosownie? Nie masz kontaktu z rodziną?</p>
+    <p>We wszystkich tych sytuacjach portal „Nekrobserver” będzie użyteczny - załóż konto, podaj szukane nazwiska i podstawowe dane. Nasz system stale śledzi najpopularniejsze serwisy z nekrologami. Zostaniesz poinformowany o wynikach wyszukiwania pocztą elektroniczną.
+    </p>
+  {% endif %}
+</div>
+</div>
+{% endblock %} 
